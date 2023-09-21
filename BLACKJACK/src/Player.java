@@ -20,12 +20,21 @@ public class Player {
 	
 	public void getCards()
 	{
-		System.out.println("Cartas do " + name);
+		System.out.println("\n\nCartas do " + this.getName());
 		for(int i = 0; i<cards.size(); i++)
 		{
 			System.out.println(cards.get(i));
-		}
+	}
 		
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 
 }
