@@ -3,9 +3,16 @@ import java.util.ArrayList;
 
 public class Player {
 	
+    /**
+     * Class that represent a player in the game.
+     */
+	
 	private String name;
 	ArrayList<Card> cards = new ArrayList<Card>();
 	
+    /**
+     * Constructor of the player.
+     */
 	public Player(String name, DeckOfCards myDeck)
 	{
 		this.name = name;
@@ -13,28 +20,79 @@ public class Player {
 		cards.add(myDeck.dealCard());
 	}
 	
+    /**
+     * Deal a card of the deck and add into the hand of the player.
+     */
 	public void addCard (DeckOfCards myDeck)
 	{
 		cards.add(myDeck.dealCard());
 	}
 	
+    /**
+     * Print the card that the player has in his hand.
+     */
 	public void getCards()
 	{
 		System.out.println("\n\nCartas do " + this.getName());
 		for(int i = 0; i<cards.size(); i++)
 		{
 			System.out.println(cards.get(i));
+		}
 	}
-		
-	}
-
-	public String getName() {
+	
+    /**
+     * Return the name of the player.
+     * 
+     * @return Returns the name of the player
+     */
+	public String getName()
+	{
 		return name;
 	}
-
-	public void setName(String name) {
+	
+    /**
+     * Set the name of the player.
+     */
+	public void setName(String name)
+	{
 		this.name = name;
 	}
 	
-
+    /**
+     * Sum the values of the card in the hand of the player.
+     *
+     * @return Returns the sum of the cards.
+     */
+	public int getTotal()
+    {  
+        int total = 0;
+        
+        for (Card eachCard : this.cards)
+        {
+            total += eachCard.getValue();
+        }
+        
+        return total;
+    }
+    
+    /**
+     * Checks whether card hand is bust or not.
+     *
+     * @return Returns true if the hand is bust.
+     */
+    public boolean isBust()
+    {
+        return (getTotal() > 21) ? true : false;
+    }
+    
+    /**
+     * Check to see if hand has Blackjack - that being equal to 21 and 
+     * only two cards.
+     * 
+     * @return Returns true if the player has Blackjack.
+     */
+    public boolean hasBlackjack()
+    {
+        return (getTotal() == 21 && cards.size() == 2) ? true : false;
+    }
 }

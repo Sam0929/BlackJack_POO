@@ -30,6 +30,8 @@ public class DeckOfCardsTest
     	  p[i].getCards();
       }
       
+      System.out.println(p[0].getTotal());
+      
       s.close();
    } 
 } // end class DeckOfCardsTest

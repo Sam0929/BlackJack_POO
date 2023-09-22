@@ -51,4 +51,8 @@ public class Card
            throw new IllegalArgumentException("Palavra não reconhecida: " + input);
        }
    }
+   
+   public int getValue() {
+	   return this.value;
+   }
 } // end class Card
