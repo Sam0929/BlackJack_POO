@@ -18,6 +18,7 @@ public class Player {
 		this.name = name;
 		cards.add(myDeck.dealCard());
 		cards.add(myDeck.dealCard());
+		this.hasAce();
 	}
 	
     /**
@@ -26,6 +27,7 @@ public class Player {
 	public void addCard (DeckOfCards myDeck)
 	{
 		cards.add(myDeck.dealCard());
+		this.hasAce();
 	}
 	
     /**
@@ -33,7 +35,8 @@ public class Player {
      */
 	public void getCards()
 	{
-		System.out.println("\n\nCartas do " + this.getName());
+		System.out.println("\n=========================================");
+		System.out.println("Cartas do " + this.getName()+":\n");
 		for(int i = 0; i<cards.size(); i++)
 		{
 			System.out.println(cards.get(i));
@@ -70,6 +73,7 @@ public class Player {
         for (Card eachCard : this.cards)
         {
             total += eachCard.getValue();
+            
         }
         
         return total;
@@ -95,4 +99,22 @@ public class Player {
     {
         return (getTotal() == 21 && cards.size() == 2) ? true : false;
     }
+    
+    /**
+     * Checks whether card hand is bust and if has an Ace, change the value to 1.
+     */
+    public void hasAce()
+    {
+        if(isBust())
+        {
+        	for (Card eachCard : this.cards)
+        	{
+        		if(eachCard.getValue() == 11 && isBust())
+        		{
+        			eachCard.setValueAce();
+        		}
+        	}
+        }
+    }
+   
 }

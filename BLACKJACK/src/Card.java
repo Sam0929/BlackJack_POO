@@ -5,7 +5,7 @@ public class Card
 {
    private final String face; // face of card ("Ace", "Deuce", ...)
    private final String suit; // suit of card ("Hearts", "Diamonds", ...)
-   private final int value; // value of card
+   private int value; // value of card
 
    // two-argument constructor initializes card's face and suit
    public Card(String face, String suit)
@@ -54,5 +54,9 @@ public class Card
    
    public int getValue() {
 	   return this.value;
+   }
+   
+   void setValueAce() {
+	   this.value = 1;
    }
 } // end class Card
