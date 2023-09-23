@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 
-
+/**
+* Class that represent a player in the game.
+*/
 public class Player {
 	
-    /**
-     * Class that represent a player in the game.
+	/**
+     * Attributes of the class Player.
      */
-	
 	private String name;
 	ArrayList<Card> cards = new ArrayList<Card>();
 	

@@ -1,14 +1,22 @@
 import java.security.SecureRandom;
 
+/**
+ * Class that represent a deck of cards.
+ */
 public class DeckOfCards
 {
+   /**
+    * Attributes of the class DeckOfCards.
+    */
    private Card[] deck; // array of Card objects
    private int currentCard; // index of next Card to be dealt (0-51)
    private static final int NUMBER_OF_CARDS = 52; // constant # of Cards
    // random number generator
    private static final SecureRandom randomNumbers = new SecureRandom();
 
-   // constructor fills deck of Cards
+   /**
+    * Constructor of the class DeckOfCards.
+    */
    public DeckOfCards()
    {
       String[] faces = {"Ace", "Deuce", "Three", "Four", "Five", "Six", 
@@ -24,7 +32,9 @@ public class DeckOfCards
             new Card(faces[count % 13], suits[count / 13]);
    } 
 
-   // shuffle deck of Cards with one-pass algorithm
+   /**
+    * Method to shuffle the deck.
+    */
    public void shuffle()
    {
       // next call to method dealCard should start at deck[0] again
@@ -43,7 +53,10 @@ public class DeckOfCards
       } 
    } 
 
-   // deal one Card
+   /**
+   * Method to deal a card.
+   * @return Card.
+   */
    public Card dealCard()
    {
       // determine whether Cards remain to be dealt

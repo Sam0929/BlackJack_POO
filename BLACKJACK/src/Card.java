@@ -1,13 +1,23 @@
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class that represent a card.
+ */
 public class Card 
 {
+    /**
+     * Attributes of the class Card.
+     */
    private final String face; // face of card ("Ace", "Deuce", ...)
    private final String suit; // suit of card ("Hearts", "Diamonds", ...)
    private int value; // value of card
 
-   // two-argument constructor initializes card's face and suit
+   /**
+    * Constructor of the class Card.
+    * @param face Face of the card.
+    * @param suit Suit of the card.
+    */
    public Card(String face, String suit)
    {
       this.face = face;
@@ -22,12 +32,19 @@ public class Card
       
    } 
 
-   // return String representation of Card
+   /**
+    * Method to return the face of the card.
+    * @return Face of the card.
+    */
    public String toString() 
    { 
       return face + " of " + suit + "(value: " + value + ")" ;
    } 
    
+   /**
+    * Method to return the value of the card.
+    * @return Value of the card.
+    */
    private static final Map<String, Integer> wordToNumber = new HashMap<>();
    
    static {
@@ -43,6 +60,11 @@ public class Card
        wordToNumber.put("Ten", 10);
    }
 
+   /**
+    * Method to convert the face of the card to a number.
+    * @param input Face of the card.
+    * @return Value of the card.
+    */
    private static int convert(String input) {
       
        if (wordToNumber.containsKey(input)) {
@@ -52,10 +74,17 @@ public class Card
        }
    }
    
+   /**
+    * Method to return the value of the card.
+    * @return Value of the card.
+    */
    public int getValue() {
 	   return this.value;
    }
    
+    /**
+     * Method to set the value of the card Ace to 1.
+     */
    void setValueAce() {
 	   this.value = 1;
    }

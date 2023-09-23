@@ -6,21 +6,21 @@ public class DeckOfCardsTest
    {
 	   
 	  Scanner s1 = new Scanner (System.in);
-	  int qJogadores = 0;
+	  int numberPlayers = 0;
 	  
 	  System.out.print("Quantos players irão jogar BlackJack? \n \nDigite o número de jogadores:");
 	  String str = s1.nextLine();      
 
 	  try{
-           qJogadores = Integer.parseInt(str);
+           numberPlayers = Integer.parseInt(str);
       }
       catch (NumberFormatException ex){
           ex.printStackTrace();
       }
 	  
 	  
-	  Game novo = new Game (qJogadores, s1);
-	  novo.startGame();
+	  Game newGame = new Game (numberPlayers, s1);
+	  newGame.startGame();
       s1.close();
 	  
    } 
